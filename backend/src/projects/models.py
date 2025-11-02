@@ -37,7 +37,7 @@ class ProjectExtension(Base):
 
     git = Column(String(120))
     figma = Column(String(120))
-    cms_system_id = Column(Integer, ForeignKey('cms_system.id'), nullable=False, index=True)
+    cms_system_id = Column(Integer, ForeignKey('cms_system.id'), index=True)
     custom_admin_url = Column(String(120))
     auto_deploy = Column(Boolean, default=False)
     project_id = Column(Integer, ForeignKey('projects.id'), index=True)
