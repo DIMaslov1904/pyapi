@@ -19,7 +19,7 @@ class UserResponse(UserCreate):
     id: int = Field(..., description="id")
 
     class Config:
-        form_attributes = True
+        from_attributes = True
 
 
 class UserListResponse(BaseModel):

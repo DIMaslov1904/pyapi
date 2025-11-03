@@ -82,7 +82,7 @@ class ProjectResponse(ProjectBase):
     )
 
     class Config:
-        form_attributes = True
+        from_attributes = True
 
 
 class ProjectListResponse(BaseModel):

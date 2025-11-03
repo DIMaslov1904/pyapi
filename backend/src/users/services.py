@@ -8,11 +8,11 @@ class UserService:
     def __init__(self, db: Session):
         self.repository = UserRepository(db)
 
-    def get_all_users(self) -> list[UserResponse]:
+    def get_all(self) -> list[UserResponse]:
         users = self.repository.get_all()
         return [UserResponse.model_validate(user) for user in users]
 
-    def get_user_by_id(self, id: int) -> UserResponse:
+    def get_by_id(self, id: int) -> UserResponse:
         user = self.repository.get_by_id(id)
         if not user:
             raise HTTPException(
@@ -22,6 +22,6 @@ class UserService:
 
         return UserResponse.model_validate(user)
 
-    def create_user(self, data: UserCreate) -> UserResponse:
+    def create(self, data: UserCreate) -> UserResponse:
         user = self.repository.create(data)
         return UserResponse.model_validate(user)
